@@ -1,0 +1,44 @@
+import React from 'react'
+
+import { useTranslations } from 'next-intl'
+
+const Point = (props) => {
+  return (
+    <>
+      <div className="point-point">
+        <div className="point-check">
+          <svg viewBox="0 0 1024 1024" className="point-icon1">
+            <path d="M384 690l452-452 60 60-512 512-238-238 60-60z"></path>
+          </svg>
+        </div>
+      </div>
+      <style jsx>
+        {`
+          .point-point {
+            gap: var(--dl-layout-space-halfunit);
+            display: flex;
+            position: relative;
+            align-items: center;
+            flex-direction: row;
+            justify-content: center;
+          }
+          .point-check {
+            display: flex;
+            padding: var(--dl-layout-space-halfunit);
+            align-items: flex-start;
+            border-radius: var(--dl-layout-radius-round);
+            flex-direction: column;
+            justify-content: center;
+            background-color: #ebfaf9;
+          }
+          .point-icon1 {
+            width: 12px;
+            height: 12px;
+          }
+        `}
+      </style>
+    </>
+  )
+}
+
+export default Point
