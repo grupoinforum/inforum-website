@@ -35,6 +35,7 @@ const Heading = (props) => {
                   </Fragment>
                 )}
               </span>
+
               <span className="heading-soluciones">
                 {props.text1 ?? (
                   <Fragment>
@@ -48,31 +49,36 @@ const Heading = (props) => {
                   </Fragment>
                 )}
               </span>
-              <div className="heading-container1">
-                <span className="heading-industrias">
+
+              {/* Dropdown INDUSTIRAS */}
+              <div className="heading-container1" role="group" aria-label="Industrias">
+                <span className="heading-industrias" tabIndex={0} aria-haspopup="true">
                   {props.text21 ?? (
                     <Fragment>
                       <span className="heading-text18">Industrias</span>
                     </Fragment>
                   )}
                 </span>
-                <div className="heading-container2">
+
+                {/* Submenú (oculto por defecto, visible on hover) */}
+                <div className="heading-container2" aria-label="Submenú Industrias">
                   <span className="heading-retail">
                     {props.text2 ?? (
                       <Fragment>
                         <Link href="/industrias/retail">
-                          <a>
+                          <a className="heading-subitem">
                             <span className="heading-text26">Retail</span>
                           </a>
                         </Link>
                       </Fragment>
                     )}
                   </span>
+
                   <span className="heading-produccin">
                     {props.text22 ?? (
                       <Fragment>
                         <Link href="/industrias/produccion">
-                          <a>
+                          <a className="heading-subitem">
                             <span className="heading-text16">Producción</span>
                           </a>
                         </Link>
@@ -81,6 +87,7 @@ const Heading = (props) => {
                   </span>
                 </div>
               </div>
+
               <span className="heading-blog">
                 {props.text3 ?? (
                   <Fragment>
@@ -95,6 +102,7 @@ const Heading = (props) => {
                 )}
               </span>
             </nav>
+
             <div className="heading-buttons1">
               <button className="heading-register button">
                 <span>
@@ -120,6 +128,7 @@ const Heading = (props) => {
             </svg>
           </div>
 
+          {/* MOBILE MENU */}
           <div data-thq="thq-mobile-menu" className="heading-mobile-menu">
             <div className="heading-nav">
               <div className="heading-top">
@@ -233,16 +242,12 @@ const Heading = (props) => {
           align-items: center;
           flex-direction: row;
           justify-content: center;
+          position: relative;
         }
-        .heading-nosotros {
-          font-family: 'Montserrat';
-        }
-        .heading-soluciones {
-          font-family: 'Montserrat';
-          margin-left: var(--dl-layout-space-twounits);
-        }
-        .heading-container1 {
-          flex: 0 0 auto;
+
+        /* ---------- Dropdown Industrias (desktop) ---------- */
+        .heading-container1 { 
+          position: relative; 
           display: flex;
           align-items: flex-start;
           flex-direction: column;
@@ -250,141 +255,82 @@ const Heading = (props) => {
         .heading-industrias {
           font-family: 'Montserrat';
           margin-left: var(--dl-layout-space-twounits);
-          animation-name: none;
-          animation-delay: 0s;
-          animation-duration: 300ms;
-          animation-direction: normal;
-          animation-iteration-count: 1;
-          animation-timing-function: ease;
+          cursor: default;
         }
-        .heading-container2 {
-          flex: 0 0 auto;
-          display: flex;
-          align-items: flex-start;
-          flex-direction: column;
+        /* Submenú oculto por defecto en desktop */
+        @media (min-width: 768px) {
+          .heading-container2 {
+            display: none;
+            position: absolute;
+            top: calc(100% + 8px);
+            left: 0;
+            min-width: 200px;
+            padding: 8px 0;
+            background: #fff;
+            border: 1px solid rgba(0,0,0,.08);
+            border-radius: 10px;
+            box-shadow: 0 8px 24px rgba(0,0,0,.12);
+            flex-direction: column;
+            z-index: 50;
+          }
+          .heading-container1:hover .heading-container2 {
+            display: flex;
+          }
+          /* Reset márgenes dentro del dropdown */
+          .heading-retail,
+          .heading-produccin {
+            margin-left: 0;
+          }
+          .heading-subitem {
+            display: block;
+            padding: 10px 16px;
+            text-decoration: none;
+          }
+          .heading-subitem:hover {
+            background: rgba(0,0,0,.04);
+          }
         }
-        .heading-retail {
-          font-family: 'Montserrat';
-          margin-left: var(--dl-layout-space-twounits);
-        }
-        .heading-produccin {
-          font-family: 'Montserrat';
-          margin-left: var(--dl-layout-space-twounits);
-        }
-        .heading-blog {
-          font-family: 'Montserrat';
-          margin-left: var(--dl-layout-space-twounits);
-        }
+
+        .heading-retail { font-family: 'Montserrat'; margin-left: var(--dl-layout-space-twounits); }
+        .heading-produccin { font-family: 'Montserrat'; margin-left: var(--dl-layout-space-twounits); }
+        .heading-blog { font-family: 'Montserrat'; margin-left: var(--dl-layout-space-twounits); }
+
         .heading-buttons1 {
           display: flex;
           align-items: center;
           flex-direction: row;
           justify-content: space-between;
         }
-        .heading-register {
-          color: #ffffff;
-          font-family: 'Montserrat';
-          background-color: #082a49;
-        }
-        .heading-burger-menu {
-          display: none;
-        }
-        .heading-icon10 {
-          width: var(--dl-layout-size-xsmall);
-          height: var(--dl-layout-size-xsmall);
-        }
+        .heading-register { color: #ffffff; font-family: 'Montserrat'; background-color: #082a49; }
+        .heading-burger-menu { display: none; }
+        .heading-icon10 { width: var(--dl-layout-size-xsmall); height: var(--dl-layout-size-xsmall); }
+
         .heading-mobile-menu {
-          top: 0px;
-          left: 0px;
-          width: 100%;
-          height: 100vh;
-          display: none;
-          padding: 32px;
-          z-index: 100;
-          position: absolute;
-          flex-direction: column;
-          justify-content: space-between;
-          background-color: #fff;
+          top: 0px; left: 0px; width: 100%; height: 100vh;
+          display: none; padding: 32px; z-index: 100; position: absolute;
+          flex-direction: column; justify-content: space-between; background-color: #fff;
         }
-        .heading-nav {
-          display: flex;
-          align-items: flex-start;
-          flex-direction: column;
-        }
+        .heading-nav { display: flex; align-items: flex-start; flex-direction: column; }
         .heading-top {
-          width: 100%;
-          display: flex;
-          align-items: center;
-          margin-bottom: var(--dl-layout-space-threeunits);
-          justify-content: space-between;
+          width: 100%; display: flex; align-items: center;
+          margin-bottom: var(--dl-layout-space-threeunits); justify-content: space-between;
         }
-        .heading-logo {
-          height: 2rem;
-        }
-        .heading-close-menu {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-        .heading-icon12 {
-          width: var(--dl-layout-size-xsmall);
-          height: var(--dl-layout-size-xsmall);
-        }
-        .heading-links2 {
-          flex: 0 0 auto;
-          display: flex;
-          align-self: flex-start;
-          align-items: flex-start;
-          flex-direction: column;
-        }
-        .heading-text11 { margin-bottom: var(--dl-layout-space-unit); }
-        .heading-text12 { margin-bottom: var(--dl-layout-space-unit); }
-        .heading-text13 { margin-bottom: var(--dl-layout-space-unit); }
-        .heading-text14 { margin-bottom: var(--dl-layout-space-unit); }
-        .heading-buttons2 {
-          width: 100%;
-          display: flex;
-          margin-top: var(--dl-layout-space-unit);
-          align-items: center;
-          flex-direction: row;
-          justify-content: space-between;
-        }
+        .heading-logo { height: 2rem; }
+        .heading-close-menu { display: flex; align-items: center; justify-content: center; }
+        .heading-icon12 { width: var(--dl-layout-size-xsmall); height: var(--dl-layout-size-xsmall); }
+        .heading-links2 { flex: 0 0 auto; display: flex; align-self: flex-start; align-items: flex-start; flex-direction: column; }
+        .heading-text11, .heading-text12, .heading-text13, .heading-text14 { margin-bottom: var(--dl-layout-space-unit); }
+        .heading-buttons2 { width: 100%; display: flex; margin-top: var(--dl-layout-space-unit); align-items: center; flex-direction: row; justify-content: space-between; }
         .heading-login { margin-right: var(--dl-layout-space-twounits); }
-        .heading-icon14,
-        .heading-icon16,
-        .heading-icon18 {
-          width: var(--dl-layout-size-xsmall);
-          height: var(--dl-layout-size-xsmall);
-          margin-right: var(--dl-layout-space-twounits);
-        }
-        .heading-text16,
-        .heading-text17,
-        .heading-text22,
-        .heading-text23,
-        .heading-text26,
-        .heading-text27 { display: inline-block; text-decoration: underline; }
-        .heading-text18,
-        .heading-text19,
-        .heading-text20,
-        .heading-text21,
-        .heading-text24,
-        .heading-text25 { display: inline-block; }
+        .heading-icon14, .heading-icon16, .heading-icon18 { width: var(--dl-layout-size-xsmall); height: var(--dl-layout-size-xsmall); margin-right: var(--dl-layout-space-twounits); }
+
+        .heading-text16, .heading-text17, .heading-text22, .heading-text23, .heading-text26, .heading-text27 { display: inline-block; text-decoration: underline; }
+        .heading-text18, .heading-text19, .heading-text20, .heading-text21, .heading-text24, .heading-text25 { display: inline-block; }
 
         @media (max-width: 767px) {
-          .heading-navbar-interactive {
-            padding-left: var(--dl-layout-space-twounits);
-            padding-right: var(--dl-layout-space-twounits);
-          }
+          .heading-navbar-interactive { padding-left: var(--dl-layout-space-twounits); padding-right: var(--dl-layout-space-twounits); }
           .heading-desktop-menu { display: none; }
-          .heading-burger-menu {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-          }
-          .heading-text11,
-          .heading-text12,
-          .heading-text13,
-          .heading-text14 { margin-bottom: var(--dl-layout-space-unit); }
+          .heading-burger-menu { display: flex; align-items: center; justify-content: center; }
         }
         @media (max-width: 479px) {
           .heading-navbar-interactive { padding: var(--dl-layout-space-unit); }
