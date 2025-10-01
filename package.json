@@ -12,17 +12,12 @@
   "author": "TeleportHQ",
   "license": "MIT",
   "dependencies": {
-    "@sanity/image-url": "^1.2.0",
-    "@sanity/vision": "^4.10.2",
     "dangerous-html": "0.1.13",
-    "groq": "^4.10.2",
     "next": "^12.1.10",
     "next-intl": "2.10.0",
-    "next-sanity": "^11.4.2",
     "prop-types": "15.7.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "sanity": "^4.10.2",
     "styled-components": "^6.1.19"
   },
   "engines": {
