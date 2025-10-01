@@ -17,11 +17,18 @@ const Home = (props) => {
           <title>Finbest</title>
           <meta name="description" content="Description of the website" />
           <meta property="og:title" content="Finbest" />
-          <meta
-            property="og:description"
-            content="Description of the website"
+          <meta property="og:description" content="Description of the website" />
+
+          {/* Fuente para el CONTENIDO del Home (header/footer NO se tocan) */}
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+            rel="stylesheet"
           />
         </Head>
+
+        {/* Header (no modificado) */}
         <Heading
           text={
             <Fragment>
@@ -117,6 +124,7 @@ const Home = (props) => {
           }
         ></Heading>
 
+        {/* CONTENIDO */}
         <div className="home-hero">
           <div className="home-content10">
             <div className="home-content11">
@@ -204,7 +212,10 @@ const Home = (props) => {
               <div className="home-content12">
                 <span className="home-title2">Retail</span>
                 <span className="home-description4">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusa</span>
-                <button type="button" className="home-button2 button">Conoce más</button>
+                {/* Enlace activado */}
+                <Link href="/industrias/retail">
+                  <a className="home-button2 button" aria-label="Conoce más sobre Retail">Conoce más</a>
+                </Link>
               </div>
             </div>
 
@@ -222,7 +233,10 @@ const Home = (props) => {
               <div className="home-content13">
                 <span className="home-title3">Producción</span>
                 <span className="home-description5">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusa</span>
-                <button type="button" className="home-button3 button">Conoce más</button>
+                {/* Enlace activado */}
+                <Link href="/industrias/produccion">
+                  <a className="home-button3 button" aria-label="Conoce más sobre Producción">Conoce más</a>
+                </Link>
               </div>
             </div>
 
@@ -270,8 +284,8 @@ const Home = (props) => {
                   <Script html={`<?xml version="1.0" encoding="UTF-8"?>
 <svg id="Capa_1" data-name="Capa 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 74.18 78.32">
   <defs><style>.cls-1{fill:#fff;}</style></defs>
-  <path class="cls-1" d="M67.71,25.64c-.78,0-1.52.36-2,.98l-15.49,19.84c-.31.39-.72.69-1.2.85l-12.12,4.04 6.84-4.94c1.13-.82 1.39-2.4 .58-3.54l-2.17-3.03c-.58-.82-1.6-1.21-2.58-1.01l-18.4,3.8c-.47.1-.9.32-1.25.66l-15.2,14.62c-1.11,1.06-1.02,2.86.17,3.81l7.87,6.3c.38.3.83.49 1.31.54l18.42,1.99c.41.04.82-.01 1.2-.16l25.63-10.04c.72-.28 1.27-.87 1.5-1.61l9.31-29.81c.51-1.64-.71-3.3-2.42-3.3Z"/>
-  <path class="cls-1" d="M30.39,23.74c.36.26.52.73.38,1.16l-2.55,7.84c-.31.95.78,1.75,1.59,1.16l6.67-4.84c.36-.26.85-.26 1.22,0l6.67,4.84c.81.59,1.9-.2,1.59-1.16l-2.55-7.84c-.14-.43.01-.89.38-1.16l6.67-4.84c.81-.59.39-1.87-.61-1.87h-8.24c-.45,0-.85-.29-.99-.72l-2.55-7.84c-.31-.95-1.66-.95-1.97,0l-2.55,7.84c-.14.43-.54.72-.99.72h-8.24c-1,0-1.42,1.28-.61,1.87l6.67,4.84Z"/>
+  <path class="cls-1" d="M67.71,25.64c-.78,0-1.52.36-2,.98l-15.49,19.84c-.31.39-.72.69-1.2.85l-12.12,4.04 6.84-4.94c1.13-.82 1.39-2.4 .58-3.54l-2.17-3.03c-.58-.82-1.6-1.21-2.58-1.01l-18.4,3.8c-.47.1-.9 .32-.1 .66l-15.2,14.62c-1.11,1.06-1.02,2.86 .17,3.81l7.87,6.3c.38 .3 .83 .49 1.31 .54l18.42,1.99c.41 .04 .82 -.01 1.2 -.16l25.63 -10.04c.72 -.28 1.27 -.87 1.5 -1.61l9.31 -29.81c.51 -1.64 -.71 -3.3 -2.42 -3.3Z"/>
+  <path class="cls-1" d="M30.39,23.74c.36 .26 .52 .73 .38 ,1.16l-2.55 ,7.84c-.31 .95 .78 ,1.75 ,1.59 ,1.16l6.67 -4.84c.36 -.26 .85 -.26 1.22 ,0l6.67 ,4.84c.81 .59 ,1.9 -.2 ,1.59 -1.16l-2.55 -7.84c-.14 -.43 .01 -.89 .38 -1.16l6.67 -4.84c.81 -.59 .39 -1.87 -.61 -1.87h-8.24c-.45 ,0 -.85 -.29 -.99 -.72l-2.55 -7.84c-.31 -.95 -1.66 -.95 -1.97 ,0l-2.55 ,7.84c-.14 ,.43 -.54 ,.72 -.99 ,.72h-8.24c-1 ,0 -1.42 ,1.28 -.61 ,1.87l6.67 ,4.84Z"/>
 </svg>`} />
                 </div>
               </div>
@@ -326,7 +340,7 @@ const Home = (props) => {
                 <Link href="/">
                   <a className="home-link7">
                     <div className="home-get-started button">
-                      <span className="home-sign-up">Get started now</span>
+                      <span className="home-sign-up">Leer más</span>
                     </div>
                   </a>
                 </Link>
@@ -340,6 +354,7 @@ const Home = (props) => {
           </div>
         </div>
 
+        {/* Footer (no modificado) */}
         <Footer
           link="Responsive Web Design"
           link2="(+502) 2417-2400"
@@ -373,6 +388,18 @@ const Home = (props) => {
           text-decoration: underline;
         }
         .home-text10, .home-text11, .home-text12, .home-text13, .home-text14, .home-text15 { display: inline-block; }
+
+        /* ===== Solo CONTENIDO usa Montserrat (sin tocar header/footer) ===== */
+        .home-hero,
+        .home-stats,
+        .home-features,
+        .home-sections,
+        .home-hero * ,
+        .home-stats * ,
+        .home-features * ,
+        .home-sections * {
+          font-family: 'Montserrat', sans-serif !important;
+        }
 
         .home-hero {
           width: 100%;
@@ -410,8 +437,8 @@ const Home = (props) => {
           padding-bottom: var(--dl-layout-space-sixunits);
           justify-content: center;
         }
-        .home-title1 { color: #fff; font-family: 'Montserrat'; font-style: normal; }
-        .home-caption1 { color: #fff; font-size: 18px; font-family: 'Montserrat'; font-weight: 400; line-height: 27px; }
+        .home-title1 { color: #fff; font-style: normal; }
+        .home-caption1 { color: #fff; font-size: 18px; font-weight: 400; line-height: 27px; }
         .home-hero-buttons { gap: var(--dl-layout-space-unit); border: 2px dashed rgba(120,120,120,.4); display: flex; z-index: 15; margin-top: var(--dl-layout-space-unit); align-items: center; justify-content: center; }
 
         .home-container11 { height: 286px; }
@@ -444,9 +471,9 @@ const Home = (props) => {
           border-right-width: 1px;
           border-bottom-width: 0;
         }
-        .home-caption2 { color: #082a49; font-size: 40px; font-family: 'Montserrat'; font-weight: 800; line-height: 56px; }
-        .home-text17 { font-family: 'Montserrat'; }
-        .home-description1 { width: 100%; font-size: 18px; max-width: 350px; text-align: center; font-family: 'Montserrat'; line-height: 27px; }
+        .home-caption2 { color: #082a49; font-size: 40px; font-weight: 800; line-height: 56px; }
+        .home-text17 { font-weight: 800; }
+        .home-description1 { width: 100%; font-size: 18px; max-width: 350px; text-align: center; line-height: 27px; }
 
         .home-container13 { display: flex; flex-direction: column; align-items: center; }
         .home-stat2 {
@@ -463,14 +490,23 @@ const Home = (props) => {
           border-left-width: 1px;
           border-bottom-width: 0;
         }
-        .home-caption3, .home-caption4 { color: #082a49; font-size: 40px; font-family: 'Montserrat'; font-weight: 800; line-height: 56px; }
-        .home-description2, .home-description3 { width: 100%; font-size: 18px; max-width: 350px; text-align: center; font-family: 'Montserrat'; line-height: 27px; }
+        .home-caption3, .home-caption4 { color: #082a49; font-size: 40px; font-weight: 800; line-height: 56px; }
+        .home-description2, .home-description3 { width: 100%; font-size: 18px; max-width: 350px; text-align: center; line-height: 27px; }
 
-        .home-button1 { color: #fff; margin-top: var(--dl-layout-space-oneandhalfunits); font-family: 'Montserrat'; margin-bottom: var(--dl-layout-space-twounits); background-color: #082a49; }
+        /* Botón “Conoce más de Grupo Inforum” — fuerza Montserrat */
+        .home-button1 { 
+          color: #fff; 
+          margin-top: var(--dl-layout-space-oneandhalfunits); 
+          margin-bottom: var(--dl-layout-space-twounits); 
+          background-color: #082a49; 
+          font-family: 'Montserrat', sans-serif !important;
+        }
+        .home-button1 * { font-family: 'Montserrat', sans-serif !important; }
 
-        .home-text18, .home-text19, .home-text20, .home-text21 { display: inline-block; font-family: 'Poppins'; }
+        /* Antes: Poppins —> Ahora Montserrat en textos internos que ya pasamos por props */
+        .home-text18, .home-text19, .home-text20, .home-text21 { display: inline-block; }
         .home-text22 { display: inline-block; font-weight: 800; }
-        .home-text23, .home-text24, .home-text25, .home-text26, .home-text27, .home-text28, .home-text29, .home-text30 { display: inline-block; font-family: 'Montserrat'; }
+        .home-text23, .home-text24, .home-text25, .home-text26, .home-text27, .home-text28, .home-text29, .home-text30 { display: inline-block; }
         .home-text24, .home-text25, .home-text26 { color: #082a49; font-weight: 700; }
         .home-text23 { color: #082a49; }
 
@@ -530,10 +566,10 @@ const Home = (props) => {
           justify-content: flex-start;
         }
         .home-title2, .home-title3, .home-title4, .home-title5, .home-title6, .home-title7 {
-          color: #fff; font-size: 20px; font-family: 'Montserrat'; font-weight: 600;
+          color: #fff; font-size: 20px; font-weight: 600;
         }
         .home-description4, .home-description5, .home-description6, .home-description7, .home-description8, .home-description9 {
-          color: #fffdfd; font-family: 'Montserrat';
+          color: #fffdfd;
         }
         .home-button2, .home-button3, .home-button4, .home-button5, .home-button6, .home-button7 { background-color: #f59f11; }
 
@@ -541,11 +577,21 @@ const Home = (props) => {
         .home-section { gap: var(--dl-layout-space-sixunits); width: 100%; display: flex; z-index: 10; align-items: center; padding: var(--dl-layout-space-fourunits) 0; justify-content: center; }
         .home-content18 { gap: var(--dl-layout-space-oneandhalfunits); display: flex; flex-direction: column; justify-content: center; }
         .home-heading2 { gap: var(--dl-layout-space-unit); display: flex; flex-direction: column; justify-content: center; }
-        .home-text32 { color: #082a49; font-size: 40px; max-width: 535px; font-family: 'Poppins'; font-weight: 600; line-height: 56px; }
-        .home-text33 { font-size: 18px; max-width: 535px; font-family: 'Poppins'; line-height: 27px; }
+        /* Blog: Montserrat bold */
+        .home-text32 { color: #082a49; font-size: 40px; max-width: 535px; font-weight: 800; line-height: 56px; }
+        .home-text33 { font-size: 18px; max-width: 535px; line-height: 27px; }
         .home-content19 { gap: var(--dl-layout-space-threeunits); height: 94px; display: flex; flex-direction: column; justify-content: center; }
         .home-link7 { display: contents; }
-        .home-get-started { color: #fff; font-family: 'Montserrat'; background-color: #082a49; }
+        /* Botón del Blog: Montserrat + alineado izq + 50% ancho */
+        .home-get-started { 
+          color: #fff; 
+          background-color: #082a49; 
+          font-family: 'Montserrat', sans-serif !important;
+          align-self: flex-start;
+          width: 50%;
+        }
+        .home-get-started * { font-family: 'Montserrat', sans-serif !important; }
+
         .home-sign-up { font-style: normal; font-weight: 500; }
         .home-image { width: 310px; height: 383px; object-fit: cover; }
 
@@ -579,6 +625,7 @@ const Home = (props) => {
           .home-title2, .home-title3, .home-title4, .home-title5, .home-title6, .home-title7 { font-size: 18px; line-height: 27px; }
           .home-text32 { font-size: 32px; line-height: 44px; }
           .home-text33 { font-size: 16px; line-height: 24px; }
+          .home-get-started { width: 60%; } /* un poco más ancho en tablets */
         }
         @media (max-width: 479px) {
           .home-content10 { height: 637px; }
@@ -587,9 +634,73 @@ const Home = (props) => {
           .home-hero-buttons { width: 100%; flex-direction: column; }
           .home-container11 { width: 479px; height: 288px; }
           .home-stats { height: 395px; margin-top: var(--dl-layout-space-fourunits); }
-          .home-description3 { font-size: 18px; font-family: Poppins; line-height: 27px; }
+          /* Antes: Poppins en mobile —> Montserrat */
+          .home-description3 { font-size: 18px; line-height: 27px; }
           .home-feature1, .home-feature2, .home-feature3, .home-feature4, .home-feature5, .home-feature6 { padding-top: 0; padding-bottom: 0; }
+          .home-get-started { width: 100%; } /* en móvil que respire a lo ancho */
         }
+
+        /* ===============================
+           CONTENT-ONLY: ajustes hero responsivo
+           =============================== */
+        .home-hero { height: auto; padding-top: 32px; }
+        .home-content10 { min-height: 520px; background-position: center; background-repeat: no-repeat; }
+        .home-container11 { width: 100%; max-width: 960px; padding-left: 16px; padding-right: 16px; height: auto; }
+        .home-container12 { display: block; position: relative; width: 100%; padding-top: 56.25%; }
+        .home-container12 :global(iframe) { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; border-radius: 12px; }
+
+        @media (max-width: 991px) {
+          .home-content10 { flex-direction: column; align-items: stretch; min-height: 540px; }
+          .home-content11 { margin-top: 16px; padding-top: 16px; padding-left: var(--dl-layout-space-oneandhalfunits); padding-right: var(--dl-layout-space-oneandhalfunits); }
+        }
+        @media (max-width: 767px) {
+          .home-hero { padding-top: 16px; }
+          .home-content10 { min-height: 560px; padding-left: var(--dl-layout-space-unit); padding-right: var(--dl-layout-space-unit); align-items: center; }
+          .home-content11 { width: 100%; max-width: 680px; margin-top: 8px; padding-top: 8px; padding-left: 0; padding-right: 0; }
+          .home-title1 { font-size: 40px; line-height: 1.15; margin-bottom: 8px; }
+          .home-caption1 { font-size: 16px; line-height: 24px; }
+        }
+        @media (max-width: 479px) {
+          .home-content10 { min-height: 600px; }
+          .home-title1 { font-size: 34px; }
+        }
+
+        /* Evita separaciones raras en el hero del contenido */
+        .home-hero { margin-top: 0 !important; padding-top: 12px !important; }
+        .home-content10, .home-container10 { margin-top: 0 !important; }
+        .home-content11 { padding-top: 8px !important; }
+        .home-title1 { margin-top: 0 !important; }
+
+        /* Offset para header fijo */
+.home-container10 {
+  padding-top: 96px;
+}
+
+@media (max-width: 767px) {
+  .home-container10 {
+    padding-top: 68px;
+  }
+}
+/* === Ajuste solo para botón Blog en responsive === */
+@media (max-width: 991px) {
+  .home-get-started {
+    width: 100% !important;
+    align-self: stretch; /* que se estire al contenedor */
+    text-align: center;  /* centra el texto dentro */
+    justify-content: center; /* por si es flex */
+  }
+}
+/* Solo centra el texto dentro de los botones */
+.home-button2,
+.home-button3,
+.home-button4,
+.home-button5,
+.home-button6,
+.home-button7 {
+  text-align: center;   /* centra el texto */
+  display: inline-block; /* mantiene el ancho natural */
+}
+
       `}</style>
     </>
   )

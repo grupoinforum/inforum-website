@@ -151,7 +151,12 @@ const Heading = (props) => {
         .heading-heading {
           width: 100%;
           display: flex;
-          position: relative;
+          position: fixed; /* fijo arriba */
+          top: 0;
+          left: 0;
+          z-index: 9999; /* encima de todo */
+          background: #fff;
+          box-shadow: 0 2px 6px rgba(0,0,0,.08);
           align-items: center;
           flex-direction: column;
         }
@@ -256,7 +261,7 @@ const Heading = (props) => {
           position: fixed;
           inset: 0;
           background: #ffffff;
-          z-index: 1000;
+          z-index: 10000;
           display: flex;
           padding: 24px;
         }
